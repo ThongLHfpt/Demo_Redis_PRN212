@@ -10,7 +10,7 @@
 
 Tuỳ chọn: Cài RedisInsight để quan sát dữ liệu
 
-Hoặc cài bản desktop từ trang RedisInsight và add kết nối `localhost:6379`.
+cài bản desktop từ trang RedisInsight, tạo 1 database để lưu và add kết nối đến `localhost:6379`.
 
 
 ### 3) Mô tả luồng code (caching với Redis)
