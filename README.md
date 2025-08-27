@@ -10,12 +10,12 @@
 
 Tuỳ chọn: Cài RedisInsight để quan sát dữ liệu
 
-cài bản desktop từ trang RedisInsight, tạo 1 database để lưu và add kết nối đến `localhost:6379`.
+cài bản desktop từ trang RedisInsight, thêm một kết nối tới Redis server tại `localhost:6379` để quản lý và theo dõi dữ liệu.
 
 
-### 3) Mô tả luồng code (caching với Redis)
+### 2) Mô tả luồng code (caching với Redis)
 - `WPF` gọi `BussinessLayer.UserService.GetUserProfile(userId)`.
-- `UserService` tạo kết nối Redis tới `127.0.0.1:6379` bằng `StackExchange.Redis` và lấy `IDatabase`.
+- `UserService` tạo kết nối Redis tới `127.0.0.1:6379` bằng `StackExchange.Redis`( dùng để kết nối và tương tác với Redis database ) và lấy `IDatabase`.(interface cung cấp tất cả các method để tương tác với redis: StringGet()- lấy data từ cache, StringSet() - Lưu dữ liệu vào cache, Multiplexer.IsConnected - Kiểm tra kết nối)
 - Tạo key cache dạng `user:{userId}` rồi kiểm tra:
   - Nếu có cache: trả về chuỗi "Cache hit | <ms> | <value>".
   - Nếu không có:
